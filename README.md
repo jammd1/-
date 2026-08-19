@@ -93,3 +93,17 @@
     
 14. 살충제 패러독스(Pesticide Paradox):
   - 동일한 테스트 케이스로 반복적인 테스트를 수행하면 더 이상 새로운 버그(결함)을 발견할 수 없다는 테스트 원리
+
+15. HDLC(High-Level Data Link Control):
+  - Bit 위주의 프로토콜로 각 프레임에 데이터 흐름을 제어하고 오류를 검출할 수 있는 비트 열을 삽입하여 전송한다.
+  - FCS(Frame Check Sequence Field)에 CRC(Cyclic Redundancy Check, 다항식 기반 오류 검출법) 사용
+  프레임 종류:
+    - I-Frame(Information Frame): 실제 사용자 데이터 전송 프레임, 제어부(8bit)가 0으로 시작
+    - S-Frame(Supervisory Frame): 데이터 링크 제어 정보를 포함하는 프레임, 제어부가 10으로 시작
+    - U-Frame(Unnumbered Frame): 순서 번호 없이, 데이터 링크 설정 모드 설정 등 제어 기능을 수행하는 프레임, 제어부가 11로 시작
+      
+  모드의 종류:
+    NRN(Normal Response Mode): 반이중 통신을 하는 포인트 투 포인트(Point to Point) 또는 멀티 포인트(Multi-Point) 불균형 링크 구성에 사용/ 종국은 주국의 허가(Poll)이 있을 때에만 송신 가능
+    ARM(Asynchronous Response Mode): 전이중 통신을 하는 PtP 불균형 링크 구성에 사용 / 종국은 주국의 허가 없이도 송신이 가능하지만, 링크 설정이나 오류 복구 등의 제어 기능은 주국만 가능
+    ABM(Asyncronous Balanced Mode): PtP 균형 링크에서 사용/ 혼합국끼리 허가 없이 언제나 전송할 수 있도록 설정
+    
